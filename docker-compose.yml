@@ -6,7 +6,7 @@ services:
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD: 12345
-    volume:
+    volumes:
       - ./db:/var/lib/mysql
 
   adminer:
