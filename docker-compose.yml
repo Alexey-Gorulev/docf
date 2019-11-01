@@ -6,9 +6,8 @@ services:
     image: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: example
-    volumes:
-      - ./db:/var/lib/mysql
+      MYSQL_USER: vasya
+      MYSQL_PASSWORD: 123
 
   adminer:
     image: adminer
