@@ -1,13 +1,12 @@
-version: '3.1'
+version: '3'
 
 services:
 
   db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    image: mariabd
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=example
+      MYSQL_ROOT_PASSWORD: 123456
 
   adminer:
     image: adminer
