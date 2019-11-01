@@ -6,10 +6,15 @@ services:
     image: mysql
     restart: always
     environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - ./db:/var/lib/mysql
 
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
+
+
+docker run -e MYSQL_ROOT_PASSWORD=123456 -d mysql
