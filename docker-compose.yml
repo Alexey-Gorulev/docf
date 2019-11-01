@@ -1,4 +1,4 @@
-version: '3'
+version: '3.1'
 
 services:
   db: 
@@ -6,7 +6,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123456
-      DB_PATH_HOST: ./db
+      #DB_PATH_HOST: ./db
     volumes:
       - ./db:/var/lib/mysql
 
@@ -15,9 +15,9 @@ services:
     restart: always
     ports:
       - 8080:8080
-    environment:
-      MYSQL_ROOT_PASSWORD: 123456
-      PMA_HOST: db
+    #environment:
+      #MYSQL_ROOT_PASSWORD: 123456
+      #PMA_HOST: db
     depends_on:
       - db    
 
