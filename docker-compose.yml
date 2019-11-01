@@ -3,10 +3,11 @@ version: '3'
 services:
   db: 
     image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    #command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123456
+      DB_PATH_HOST: ./db
     volumes:
       - ./db:/var/lib/mysql
 
@@ -15,7 +16,10 @@ services:
     restart: always
     ports:
       - 8080:8080
-    ADMINER_DEFAULT_SERVER=mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      PMA_HOST: db
+    #ADMINER_DEFAULT_SERVER=mysql
     depends_on:
       - db    
 
