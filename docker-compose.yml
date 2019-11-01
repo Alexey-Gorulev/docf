@@ -3,7 +3,6 @@ version: '3'
 services:
   db: 
     image: mysql
-    #command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123456
@@ -19,7 +18,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       PMA_HOST: db
-    ADMINER_DEFAULT_SERVER=mysql
     depends_on:
       - db    
 
