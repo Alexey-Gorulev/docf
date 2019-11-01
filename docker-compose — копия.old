@@ -1,0 +1,38 @@
+version: '3.1'
+
+services:
+  db: 
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      #DB_PATH_HOST: ./db
+    volumes:
+      - ./db:/var/lib/mysql
+    depends_on:
+      - adminer    
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    #environment:
+      #MYSQL_ROOT_PASSWORD: 123456
+      #PMA_HOST: db
+    #depends_on:
+      #- db    
+
+  web:
+    image: web
+    restart: always
+    depends_on:
+      - db    
+
+  proxy:
+    image: proxy
+    ports:
+      - 80:80
+    depends_on:
+      - web
+    restart: always
