@@ -6,7 +6,7 @@ services:
     image: mysql
     restart: always
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD
+      - MYSQL_ALLOW_EMPTY_PASSWORD
 
   adminer:
     image: adminer
