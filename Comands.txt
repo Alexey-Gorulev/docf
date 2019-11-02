@@ -21,3 +21,32 @@ function CloseCon($conn)
  $conn -> close();
  }
 ?>
+
+<?php  /* If the error is due to calling mysqli in a class */
+
+    class dbconnect extends mysqli{
+
+        private $host = 'localhost';
+        private $user = 'root';
+        private $pass = '';
+        private $db = 'test';
+
+        public function __construct() {
+            parent::__construct($this->host, $this->user, $this->pass, $this->db);
+
+            if (mysqli_connect_error()) {
+                die('Connect Error (' . mysqli_connect_errno() . ') ' .
+                    mysqli_connect_error());
+            }
+        }
+    }
+?>
+
+
+
+<?php phpinfo(); ?>
+
+docker cp docf_web_1:/usr/local/etc/php/php.ini-development ~/Documents
+COPY ./php.ini:/usr/local/etc/php/
+
+
