@@ -8,19 +8,24 @@ and the most populous metropolitan area in the world.
 It is the seat of the Japanese government and the Imperial Palace,
 and the home of the Japanese Imperial Family.</p>
 
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "123456";
+<?php  /* If the error is due to calling mysqli in a class */
 
-// Create connection
-$conn = new \mysqli($servername, $username, $password);
+    class dbconnect extends mysqli{
 
-// Check connection
-if ($conn->connect_error) {
-die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
+        private $host = 'localhost';
+        private $user = 'root';
+        private $pass = '123456';
+        private $db = 'db';
+
+        public function __construct() {
+            parent::__construct($this->host, $this->user, $this->pass, $this->db);
+
+            if (mysqli_connect_error()) {
+                die('Connect Error (' . mysqli_connect_errno() . ') ' .
+                    mysqli_connect_error());
+            }
+        }
+    }
 ?>
 
 </body>
