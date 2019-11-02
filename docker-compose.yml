@@ -1,15 +1,28 @@
 version: '3'
 
 services:
-
   db:
     image: mariadb
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - ./db:/var/lib/mysql
 
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
+
+  web:
+    image: web
+    restart: always
+
+  proxy:
+    image: proxy
+    ports:
+      - 80:80
+    depends_on:
+      - web
+    restart: always
