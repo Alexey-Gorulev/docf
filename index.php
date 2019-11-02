@@ -9,13 +9,6 @@ It is the seat of the Japanese government and the Imperial Palace,
 and the home of the Japanese Imperial Family.</p>
 
 <?php
-include 'db_connection.php';
-$conn = OpenCon();
-echo "Connected Successfully";
-CloseCon($conn);
-?>
-
-<?php
 function OpenCon()
  {
  $dbhost = "localhost";
