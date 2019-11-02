@@ -30,6 +30,6 @@ services:
   composer:
     image: composer:1.6
     volumes:
-      - ./db:./
-    working_dir: ./
+      - ./db:/var/www/html
+    working_dir: /var/www/html
     command: composer install
