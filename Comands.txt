@@ -1,3 +1,4 @@
+sudo git pull https://github.com/Alexey-Gorulev/docf.git
 docker build -t web -f Dockerfile.web .
 docker build -t proxy -f Dockerfile.proxy .
 docker-compose up
