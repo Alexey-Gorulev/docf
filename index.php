@@ -26,6 +26,9 @@ and the home of the Japanese Imperial Family.</p>
             }
         }
     }
+
+phpinfo();
+
 ?>
 
 </body>
