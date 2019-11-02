@@ -26,10 +26,3 @@ services:
     depends_on:
       - web
     restart: always
-
-  composer:
-    image: composer:1.6
-    volumes:
-      - ./db:/var/www/html
-    working_dir: /var/www/html
-    command: composer install
